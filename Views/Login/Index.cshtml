@@ -1,0 +1,43 @@
+﻿@model MyReceiptWebApp.ViewModels.LoginViewModel
+
+@{ Layout = "_LoginLayout";}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="container col-md-6">
+        <h4>Login</h4>
+        <form>
+       
+            @if (Model != null)
+            {
+                if (Model.IsInvalid)
+                {
+                    <span class="text-danger">
+                        Email or password is invalid
+                    </span>
+                }
+            }
+            <br />
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="Your Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Your Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" asp-controller="Login" asp-action="Login" />
+                <a href="#" class="btn btn-outline-secondary" asp-controller="Register" asp-action="Index">Register</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
